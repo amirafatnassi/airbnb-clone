@@ -3,26 +3,47 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   public places = [
-    { name: 'zurich', icon: './assests/icons/zurich.webp', dist: '3,5 heures de route' },
-    { name: 'genève', icon: './assests/icons/geneva.webp', dist: '15 minutes de route' },
-    { name: 'montreux', icon: './assests/icons/lugano.webp', dist: '2 heures de route' },
-    { name: 'lausanne', icon: './assests/icons/lausanne.webp', dist: '1 heure de route' },
+
+    {
+      name: 'lausanne',
+      icon: './assets/Icons/lausanne.jpg',
+      dist: '1 heure de route',
+    },
+    {
+      name: 'paris',
+      icon: './assets/Icons/paris.webp',
+      dist: '1 heure de route',
+    },
+    {
+      name: 'sydney',
+      icon: './assets/Icons/sydney.webp',
+      dist: '1 heure de route',
+    },
+    {
+      name: 'barcelona',
+      icon: './assets/Icons/barcelona.webp',
+      dist: '1 heure de route',
+    },
   ];
 
   items = [
-    { name: 'Escapades en pleine nature', icon: './assets/icons/home-001.webp' },
-    { name: 'Logements uniques', icon: './assets/icons/home-002.webp' },
-    { name: 'Logements entiers', icon: './assets/icons/home-003.webp' },
-    { name: 'Animaux de companie acceptés', icon: './assets/icons/home-004.webp' },
-  ]
+    {
+      name: 'Escapades en pleine nature, murter Croatie',
+      icon: './assets/Icons/murter.webp',
+    },
+    { name: 'Logements uniques', icon: './assets/Icons/murter.webp' },
+    { name: 'Logements entiers', icon: './assets/Icons/murter.webp' },
+    {
+      name: 'Animaux de companie acceptés',
+      icon: './assets/Icons/murter.webp',
+    },
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
