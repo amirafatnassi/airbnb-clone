@@ -2,26 +2,157 @@
   <div class="mainHeader">
     <!--header image-->
     <picture>
-      <source srcset="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F106399%2Fpexels-photo-106399.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&imgrefurl=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fhouse%2F&tbnid=PCj5VWGURIThbM&vet=12ahUKEwio2uXpkvL5AhUMehoKHck_B2IQMygAegUIARDEAQ..i&docid=w_edFuvJNI2ApM&w=500&h=333&q=pictures%20houses&ved=2ahUKEwio2uXpkvL5AhUMehoKHck_B2IQMygAegUIARDEAQ" />
-      <source srcset="https://" />
-      <source srcset="https://" />
-      <source srcset="https://" />
-      <img src="https://" alt="" />
+      <source srcset="https://unsplash.com/photos/pjpf7-4sRxw" />
+      <source srcset="https://unsplash.com/photos/pjpf7-4sRxw" />
+      <source srcset="https://unsplash.com/photos/o1ZSGuPFrUw" />
+      <source srcset="https://unsplash.com/photos/18HwWLgd4ps" />
+      <img src="https://unsplash.com/photos/e6x77GlF_kM" alt="" />
     </picture>
-  </div>
-  <ion-grid>
-    <ion-row>
-      <ion-col></ion-col>
-    </ion-row>
 
+
+    <ion-grid>
+      <ion-row class="ion-margin-top ion-padding-top ion-text-center ion-justify-content">
+        <ion-col size="12" class="ion-margin-top ion-padding-top">
+          <ion-text color="dark">
+            <p class="ion-margin-top ion-padding-top">
+              Vous ne savez pas où partir ? parfait !
+            </p>
+          </ion-text>
+          <ion-button routerLink="./s" [queryParams]="{where:places[0].name}">
+            <span class="iob-padding-horizontal">Je suis flexible</span>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-grid>
     <!--cities-->
     <ion-row>
-      <ion-col></ion-col>
+      <ion-col size="12">
+        <ion-text color="dark">
+          <h2>Explorez les environs</h2>
+        </ion-text>
+      </ion-col>
+      <ion-col size="3" *ngFor="let place of places">
+        <ion-item lines="none" routerLink="s" [queryParams]="{
+          where:place.name | lowercase
+        }">
+          <ion-thumbnail slot="start">
+            <ion-img [src]="place.icon"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>{{place.name.slice(0,1) |uppercase}} {{place.name.slice(1,place.name.length)}}</h3>
+            <p>{{place.dist}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
     </ion-row>
 
     <!--trends-->
     <ion-row>
+      <ion-col size="12">
+        <ion-text color="dark">
+          <h2> Chez vous, partout</h2>
+        </ion-text>
+      </ion-col>
+      <ion-col size="3" class="placeItem" *ngFpr="let item of items; index as i" routerLink="./s"
+        [queryParams]="{where: places[i].name}">
+        <ion-card class="ion-no-margin">
+          <ion-img [src]="item.icon"></ion-img>
+        </ion-card>
+        <div>
+          <ion-text>
+            <p>{{item.name}}</p>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-grid class="becomeHost" [ngStyle]="{
+        backgroundImage: 'url(./assets/icons/home-005.webp)'
+        }"></ion-grid>
+      </ion-col>
+      <ion-col size="4" class="ionin-margin ion-padding ion-text-start">
+        <ion-text color="light">
+          <h2>Je deviens hote</h2>
+          <p>Gangnez un revenu complémentaire et saisissez de nouvelles opportunités</p>
+        </ion-text>
+        <a rel="noopener" href="https://fr.airbnb.ch/host/homes" target="_blank">
+          <ion-button color="light">
+            <small>en savoir plus</small>
+          </ion-button>
+        </a>
+      </ion-col>
+    </ion-row>
+
+    <!--become host-->
+    <ion-row>
+      <ion-col size="12"></ion-col>
       <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="mainFooter ion-padding">
+    <ion-row class="ion-padding">
+      <ion-col size="3">
+        <ion-text color="dark">
+          <h3>A PROPOS</h3>
+        </ion-text>
+        <ul>
+          <li>Fonctionnement d'airbnb</li>
+          <li>Newsroom</li>
+          <li>Airbnb 2021</li>
+          <li>Investisseurs</li>
+          <li>Airbnb Plus</li>
+          <li>Airbnb Luxe</li>
+          <li>HotelTonight</li>
+          <li>Airbnb for work</li>
+          <li>C'est possible, grace aux hotes</li>
+          <li>Carrières</li>
+          <li>Lettre des fondateurs</li>
+        </ul>
+      </ion-col>
+      <ion-col size="3">
+        <ion-text color="dark">
+          <h3>COMMUNITE</h3>
+        </ion-text>
+        <ul>
+          <li>Diversité et intégration</li>
+          <li>Accessibilité</li>
+          <li>Partenaires Airbnb</li>
+          <li>Logements d'urgence</li>
+          <li>Parrainage de voyageurs</li>
+          <li>Airbnb.org</li>
+        </ul>
+      </ion-col>
+      <ion-col size="3">
+        <ion-text color="dark">
+          <h3>Hote</h3>
+        </ion-text>
+        <ul>
+          <li>Héberger des voyageurs</li>
+          <li>Organiser une expérience en ligne</li>
+          <li>Organiser une expérience</li>
+          <li>Hébergement responsable</li>
+          <li>Centre de ressources</li>
+          <li>Community center</li>
+        </ul>
+      </ion-col>
+      <ion-col size="3">
+        <ion-text color="dark">
+          <h3>ASSISTANCE</h3>
+        </ion-text>
+        <ul>
+          <li>Nos mesures face au Covid-19</li>
+          <li>Centre d'aide</li>
+          <li>Options d'annulation</li>
+          <li>Service d'aide aux voisins</li>
+          <li>Confiance et sécurité</li>
+        </ul>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
