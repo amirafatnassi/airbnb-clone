@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
 
 @Component({
@@ -13,13 +14,13 @@ export class HeaderComponent implements OnInit {
   public segmentVisible!: string;
   public form!: FormGroup;
 
-  constructor() {}
+  constructor(private readonly _router: Router) {}
 
   ngOnInit(): void {
     //generate airbnb form
     this.form = new FormGroup({
       where: new FormControl('', Validators.compose([Validators.required])),
-      arivalDate: new FormControl(
+      arrivalDate: new FormControl(
         '',
         Validators.compose([Validators.required])
       ),
@@ -45,25 +46,39 @@ export class HeaderComponent implements OnInit {
       return;
     }
     this.form.patchValue({ where: value });
-    this.segmentVisible = 'arivalDate';
+    this.segmentVisible = 'arrivalDate';
   }
 
   //set dates option
-  setDates($event: any, inputEl: string) {
+  setDates($event: any, key: string) {
     const {
       detail: { value },
     } = $event;
     if (!value) {
       return;
     }
-    if (inputEl === 'form') {
+    if (key === 'form') {
       this.form?.patchValue({
-        arivalDate: value,
+        arrivalDate: value,
       });
     } else {
       this.form?.patchValue({
         departureDate: value,
       });
     }
+  }
+
+  //build search query
+  search() {
+    const queryParams = this.form
+      ? {
+          ...this.form.value,
+          ...this.form.value?.who,
+        }
+      : {};
+    //check value
+    console.log(queryParams);
+    //navigate to search page
+    this._router.navigate(['/s'], { queryParams });
   }
 }
