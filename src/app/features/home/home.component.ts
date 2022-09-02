@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public places = [
-
     {
       name: 'lausanne',
       icon: './assets/Icons/lausanne.jpg',
@@ -32,14 +31,14 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
-      name: 'Escapades en pleine nature, murter Croatie',
-      icon: './assets/Icons/murter.webp',
+      name: 'Escapades en pleine nature',
+      icon: './assets/Icons/home-001.webp',
     },
-    { name: 'Logements uniques', icon: './assets/Icons/murter.webp' },
-    { name: 'Logements entiers', icon: './assets/Icons/murter.webp' },
+    { name: 'Logements uniques', icon: './assets/Icons/home-002.webp' },
+    { name: 'Logements entiers', icon: './assets/Icons/home-003.webp' },
     {
       name: 'Animaux de companie acceptés',
-      icon: './assets/Icons/murter.webp',
+      icon: './assets/Icons/home-004.webp',
     },
   ];
 

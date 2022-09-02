@@ -1,4 +1,7 @@
-<ion-content>
+<ion-header>
+  <app-header [ionContent]="ionContent" [places]="places"></app-header>
+</ion-header>
+<ion-content #ionContent fullscree="true" [scrollEvents]="true">
   <div class="mainHeader">
     <!--header image-->
     <picture>
@@ -89,7 +92,7 @@
         <ion-grid
           class="becomeHost"
           [ngStyle]="{
-            backgroundImage: 'url(./assets/Icons/dark.jpg)'
+            backgroundImage: 'url(./assets/Icons/home-005.webp)'
           }"
         ></ion-grid>
       </ion-col>
