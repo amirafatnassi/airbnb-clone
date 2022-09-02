@@ -1,6 +1,5 @@
 :host {
   display: block;
-  width: 100%;
 
   .mainHeader {
     position: relative;
@@ -11,7 +10,7 @@
     background-size: cover;
 
     img {
-      position: relative;
+      position: absolute;
       top: 0;
       left: 0px;
       right: 0px;
@@ -32,9 +31,9 @@
       span {
         font-weight: 600;
         -webkit-text-fill-color: transparent !important;
-        background: -webkit-linear-gradient( 90deg, #6f019c 0% #c6017e 135.12%) !important;
-        background: -moz-linear-gradient( 90deg, #6f019c 0% #c6017e 135.12%) !important;
-        background: linear-gradient( 90deg, #6f019c 0% #c6017e 135.12%) !important;
+        background: -webkit-linear-gradient( 90deg, #6f019c 0%, #c6017e 135.12%) !important;
+        background: -moz-linear-gradient( 90deg, #6f019c 0%, #c6017e 135.12%) !important;
+        background: linear-gradient( 90deg, #6f019c 0%, #c6017e 135.12%) !important;
         -webkit-background-clip: -webkit-text !important;
         -webkit-background-clip: text !important;
       }
