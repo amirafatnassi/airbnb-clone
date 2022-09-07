@@ -18,11 +18,12 @@ import { IonContent } from '@ionic/angular';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   //get search-bar html element reference
-  @ViewChild('serachbar',{static:true, read: ElementRef}) public searchbar!:ElementRef<HTMLIonRowElement>;
-  
+  @ViewChild('serachbar', { static: true, read: ElementRef })
+  public searchbar!: ElementRef<HTMLIonRowElement>;
+
   @Input() public ionContent!: IonContent;
   @Input() public places!: any[];
-  public segmentVisible!: string|undefined;
+  public segmentVisible!: string | undefined;
   public form!: FormGroup;
 
   constructor(
@@ -78,8 +79,13 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     } else {
     }
   }
+
   async activate(segmentName: string) {
     this.segmentVisible = segmentName;
+  }
+
+  async backHome() {
+    this._router.navigate(['./']);
   }
 
   //Set where option

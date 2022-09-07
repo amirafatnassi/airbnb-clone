@@ -1,2 +1,102 @@
-<p>header works!</p>
-test
+<div #headerApp id="headerApp">
+  <!--create grid to dispatch menu elements and searchbar-->
+  <ion-grid>
+    <!--menu-->
+    <ion-row class="ion-align-items-center">
+      <ion-col (click)="backHome()" size="3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path
+            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+          />
+        </svg>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-center">
+        <ul>
+          <li>Hébergement</li>
+          <li>Expériences</li>
+          <li>Expériences en ligne</li>
+        </ul>
+      </ion-col>
+
+      <ion-col size="3" class="ion-text-right">
+        <ion-button
+          size="small"
+          mode="ios"
+          shape="round"
+          color="light"
+          class="ion-padding-horizontal"
+        >
+          <ion-icon
+            slot="icon-only"
+            size="small"
+            color="dark"
+            name="menu-outline"
+          ></ion-icon>
+          <ion-icon
+            slot="icon-only"
+            color="dark"
+            name="person-circle"
+          ></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!--search segments btn-->
+    <ion-row
+      #searchbar
+      class="searchbar ion-align-items-center ion-justify-content-center"
+    >
+      <ion-col (click)="activate('where')" class="fullOption">
+        <ion-label>
+          <ion-text>
+            <h2>Adresse</h2>
+            <!--<p>Où allez vous ?</p>-->
+            <ng-container *ngIf="!!form">
+              <form [formGroup]="form">
+                <ion-input
+                  formControlName="where"
+                  class="ioin-no-margin ion-no-padding"
+                ></ion-input>
+              </form>
+            </ng-container>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+      <ion-col (click)="activate('arrivalDate')" class="fullOption">
+        <ion-label>
+          <ion-text>
+            <h2>Arrivée</h2>
+            <p>
+              {{
+                form?.get("arrivalDate")?.valid
+                  ? (form?.get("arrivalDate")?.value + "000" | date)
+                  : "Quand ?"
+              }}
+            </p>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+       <ion-col (click)="activate('departureDate')" class="fullOption">
+        <ion-label>
+          <ion-text>
+            <h2>Arrivée</h2>
+            <p>
+              {{
+                form?.get("departureDate")?.valid
+                  ? (form?.get("departureDate")?.value + "000" | date)
+                  : "Quand ?"
+              }}
+            </p>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+      <ion-col (click)="activate('who')">
+
+      </ion-col>
+    </ion-row>
+
+    <!--segment forms-->
+    <ion-row></ion-row>
+  </ion-grid>
+</div>

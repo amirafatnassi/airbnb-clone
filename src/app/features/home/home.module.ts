@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from '../header/header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HeaderComponent } from '../header/header.component';
     CommonModule,
     HomeRoutingModule,
     IonicModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
