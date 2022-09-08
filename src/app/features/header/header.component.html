@@ -63,6 +63,7 @@
           </ion-text>
         </ion-label>
       </ion-col>
+
       <ion-col (click)="activate('arrivalDate')" class="fullOption">
         <ion-label>
           <ion-text>
@@ -77,7 +78,8 @@
           </ion-text>
         </ion-label>
       </ion-col>
-       <ion-col (click)="activate('departureDate')" class="fullOption">
+
+      <ion-col (click)="activate('departureDate')" class="fullOption">
         <ion-label>
           <ion-text>
             <h2>Arrivée</h2>
@@ -91,12 +93,56 @@
           </ion-text>
         </ion-label>
       </ion-col>
-      <ion-col (click)="activate('who')">
 
+      <ion-col (click)="activate('who')">
+        <ion-label class="ion-margin-horizontal fullOption">
+          <ion-text>
+            <h2>Voyageur</h2>
+            <p>Qui?</p>
+          </ion-text>
+        </ion-label>
+        <ion-fab-button
+          (click)="($event); $event.stopPropagation(); search()"
+          size="small"
+        >
+          <ion-icon size="small" name="search"></ion-icon>
+        </ion-fab-button>
       </ion-col>
     </ion-row>
 
     <!--segment forms-->
-    <ion-row></ion-row>
+    <ion-row
+      $ngIF="!!segementForm && !!form"
+      class="searchForm ion-align-items-start ion-justify-content-start"
+    >
+      <ion-col [ngSwitch]="true">
+        <ng-container $ngSwitchCase="segmentVisible==='where'">
+          <ion-list lines="none">
+            <ion-item
+              $ngFor="let place of places"
+              (click)="setWhere(place.name)"
+            >
+              <ion-icon size="small" name="pin" slot="start"></ion-icon>
+              <ion-label>
+                <h3>
+                  {{ place.name.slice(0, 1) | uppercase
+                  }}{{ place.name.slice(1, place.name.let) }}
+                </h3>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ng-container>
+        <ng-container
+          $ngSwitchCase="segmentVisible==='arrivalDate' || segmentVisible==='departureDate'"
+        >
+          <div class="ion-text-center">
+<!--see https://github.com/DoubleTrade/lit-datepicker-->
+          </div>
+        </ng-container>
+        <ng-container $ngSwitchCase="segmentVisible==='who'"> 
+            <!--todo: who implementation-->
+        </ng-container>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </div>
