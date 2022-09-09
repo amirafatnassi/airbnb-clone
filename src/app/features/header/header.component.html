@@ -112,14 +112,14 @@
 
     <!--segment forms-->
     <ion-row
-      $ngIF="!!segementForm && !!form"
+      *ngIf="!!segmentVisible && !!form"
       class="searchForm ion-align-items-start ion-justify-content-start"
     >
       <ion-col [ngSwitch]="true">
-        <ng-container $ngSwitchCase="segmentVisible==='where'">
+        <ng-container *ngSwitchCase="segmentVisible==='where'">
           <ion-list lines="none">
             <ion-item
-              $ngFor="let place of places"
+              *ngFor="let place of places"
               (click)="setWhere(place.name)"
             >
               <ion-icon size="small" name="pin" slot="start"></ion-icon>
@@ -133,13 +133,13 @@
           </ion-list>
         </ng-container>
         <ng-container
-          $ngSwitchCase="segmentVisible==='arrivalDate' || segmentVisible==='departureDate'"
+          *ngSwitchCase="segmentVisible==='arrivalDate' || segmentVisible==='departureDate'"
         >
           <div class="ion-text-center">
 <!--see https://github.com/DoubleTrade/lit-datepicker-->
           </div>
         </ng-container>
-        <ng-container $ngSwitchCase="segmentVisible==='who'"> 
+        <ng-container *ngSwitchCase="segmentVisible==='who'"> 
             <!--todo: who implementation-->
         </ng-container>
       </ion-col>
