@@ -2,6 +2,7 @@
   display: block;
   max-height: 58px;
   transition: all 0.15s ease-in-out;
+
   & * {
     transition: all 0.15s ease-in-out;
   }
@@ -14,9 +15,11 @@
       cursor: pointer;
       fill: val(--ion-color-light);
     }
+
     ul {
       margin: 0;
       padding: 0;
+
       li {
         display: inline-block;
         margin: 0 1rem;
@@ -67,6 +70,7 @@
       &.active {
         background: #ebebeb !important;
       }
+
       &:last-child {
         padding: 0rem;
         background: transparent;
@@ -82,15 +86,18 @@
     ion-label {
       margin: 1rem 1.5rem;
       display: block;
+
       h2 {
         font-weight: 600;
       }
+
       h2,
       p,
       ion-input {
         color: var(--ion-color-dark);
         font-size: 0.8rem;
       }
+
       p {
         opacity: 0.8;
       }
@@ -102,37 +109,39 @@
   background: var(--ion-color-light);
   box-shadow: 0px 0px 5px rgb(0 0 0 / 20%);
 
-  ion-grid{
-    svg{
-        fill:var(--ion-color-primary) !important;
-    }
-    > ion-row:nth-child(1) >ion-col:nth-child(2){
-        transform:translateY(-3.5rem) !important;
+  ion-grid {
+    svg {
+      fill: var(--ion-color-primary) !important;
     }
 
-    > ion-row:nth-child(2){
-        transform:translateY(-3.5rem) !important;
+    >ion-row:nth-child(1)>ion-col:nth-child(2) {
+      transform: translateY(-3.5rem) !important;
+    }
+
+    >ion-row:nth-child(2) {
+      transform: translateY(-3.5rem) !important;
     }
   }
 
-  .searchbar{
+  .searchbar {
     max-width: 324px;
-    margin:0.8rem auto;
+    margin: 0.8rem auto;
     box-shadow: 0px 0px 2px rgb(0 0 0 / 15%), 0px 0px 2px rgb(0 0 0 / 10%) !important;
-}
+  }
 }
 
-:host{
-    .searchForm{
-        max-width: 624px;
-        margin: -0.5rem auto 0rem;
-        ion-col{
-            margin: 1rem auto;
-            background: #FFFFFF !important;
-            border-radius: 32px !important;
-            margin-top: 0;
-            padding: 16px 32px !important;
-            box-shadow: 0px 16px 32px rgb(0 0 0 / 15%), 0px 3px 8px rgb(0 0 0 / 10%) !important;
-        }
+:host {
+  .searchForm {
+    max-width: 624px;
+    margin: -0.5rem auto 0rem;
+
+    ion-col {
+      margin: 1rem auto;
+      background: #FFFFFF !important;
+      border-radius: 32px !important;
+      margin-top: 0;
+      padding: 16px 32px !important;
+      box-shadow: 0px 16px 32px rgb(0 0 0 / 15%), 0px 3px 8px rgb(0 0 0 / 10%) !important;
     }
+  }
 }
